@@ -26,14 +26,14 @@ void sem_change(int sem, int val) {
 int sem_create(key_t key, int mode) {
   int sem, r;
   if (mode == CREATION) {
-    sem = semget(key, 1, IPC_CREAT | IPC_EXCL | 0666);
+    sem = semget(key, 1, IPC_CREAT | 0666);
     if (sem < 0) {
       perror("sem_create");
       exit(-1);
     }
     r = semctl(sem, 0, SETVAL, 1);
     if (r < 0) {
-      perror("semctl");
+      perror("sem_create");
       exit(-1);
     }
   } else {
@@ -43,8 +43,6 @@ int sem_create(key_t key, int mode) {
       exit(-1);
     }
   }
-
-  printf("\nSemaphore OK(%d) !\n\n", key);
   return sem;
 }
 
