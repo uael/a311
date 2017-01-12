@@ -4,7 +4,7 @@
 /******************************************************************/
 /* demo_shm.c : Demonstration d'utilisation d'un segment          */
 /*              de memoire partagee                               */
-/* UTILISATION : commande ( -creation | -use )                    */
+/* USE : commande ( -creation | -use )                    */
 /* Utiliser ipcs pour voir les ressources                         */
 /* Utiliser ipcrm pour rendre une ressource                       */
 /******************************************************************/

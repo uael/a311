@@ -3,7 +3,7 @@
 /* Module DUT M311                            Theme IPC S5 & POSIX  */
 /********************************************************************/
 // sem51.c : affichage de / et * par un pere et un fils ...
-// Pour sem52 : utiliser creer_sem(...), P (...), V(...) et detruire_sem(...)
+// Pour sem52 : utiliser sem_create(...), P (...), V(...) et sem_remove(...)
 //              (voir sem_Syst5.h et demo_sem.c)
 
 #include <stdio.h>
