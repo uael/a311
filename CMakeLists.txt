@@ -4,3 +4,4 @@ project(a311)
 set(CMAKE_CXX_STANDARD 11)
 
 add_subdirectory(tp2)
+add_subdirectory(tp3)
