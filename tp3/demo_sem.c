@@ -2,7 +2,7 @@
 /* IUT NICE-COTE D'AZUR - Departement INFORMATIQUE - R. CHIGNOLI    */
 /* Module DUT M311                            Theme IPC S5 & POSIX  */
 /********************************************************************/
-// demo_sem.c : Demonstration d'utilisation d'un sémaphore    
+// demo_sem.c : Demonstration d'utilisation d'un smaphore
 // usage : commande [-creation]  cle                                                                             
 // premier acces : utiliser l'option "-creation"                                              
 // Utiliser la commande ipcs pour voir la situation systeme 

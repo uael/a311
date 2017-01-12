@@ -27,7 +27,7 @@ int creer_sem(key_t key, int mode)
     sem = semget(key, 1, IPC_CREAT | IPC_EXCL  | 0666);
     if (sem < 0) { perror("Creer_sem"); exit(-1); }
     r = semctl(sem, 0, SETVAL, 1);      /* valeur initiale = 1 */
-    if (r < 0) { perror("initialisation sémaphore"); exit(-1); }
+    if (r < 0) { perror("initialisation smaphore"); exit(-1); }
   }
   else
   {

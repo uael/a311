@@ -20,7 +20,7 @@
 #include <sys/time.h>
 #include <time.h>
 
-// Type de la zone mémoire 
+// Type de la zone mmoire
 typedef struct memoire
   { int valeur;
     int date;
@@ -34,11 +34,11 @@ int main(int argc, char * argv[]) {
     if ((strcmp (argv[1], "-creation")!= 0) && (strcmp (argv[1], "-use")!= 0))
                    {fprintf (stderr, "\nSyntaxe : %s ( -creation | -use )\n\n", argv[0]); exit (2);}
     
-    /* création ou lien avec une zone partagée */
+    /* cration ou lien avec une zone partage */
     memid = shmget(CLEF, 100, 0700 | IPC_CREAT); 
     if (memid == -1) { perror("shmget"); exit (-1); }
     
-    /* attachement : montage en mémoire */
+    /* attachement : montage en mmoire */
     zone = shmat(memid, NULL, 0);
     if (zone == (struct memoire*)-1) { perror("shmat"); exit (-1); }
     
