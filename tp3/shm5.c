@@ -8,7 +8,6 @@
 #include <stdio.h>
 #include <sys/ipc.h> 
 #include <sys/shm.h>
-#include <time.h>
 
 typedef struct _shared_memory_t {
   int count;
@@ -29,19 +28,12 @@ int main(int argc, char *argv[]) {
     exit(-1);
   }
 
-  memory = shmat(memid, NULL, 0);
-  if (memory == (shared_memory_t *) -1) {
-    perror("shmat");
-    exit(-1);
-  }
-
-  memory->date = (int) time(NULL);
-  printf("%d - %s", ++memory->count, ctime((time_t *) &memory->date));
-
-  result = shmdt(memory);
+  result = shmctl(memid, IPC_RMID, SHM_INFO);
   if (result == -1) {
-    perror("shmdt");
+    perror("shmctl");
     exit(-1);
   }
+
+  printf("shmctl %d", result);
 }
 

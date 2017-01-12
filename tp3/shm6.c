@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
   int memid, result, key = atoi(argv[1]);
   shared_memory_t *memory;
 
-  memid = shmget(key, sizeof(shared_memory_t), 0777 | IPC_CREAT);
+  memid = shmget(key, sizeof(shared_memory_t), 0777 | IPC_EXCL);
   if (memid == -1) {
     perror("shmget");
     exit(-1);
@@ -35,8 +35,7 @@ int main(int argc, char *argv[]) {
     exit(-1);
   }
 
-  memory->date = (int) time(NULL);
-  printf("%d - %s", ++memory->count, ctime((time_t *) &memory->date));
+  printf("last access: %s", ctime((time_t *) &memory->date));
 
   result = shmdt(memory);
   if (result == -1) {

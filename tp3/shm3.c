@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
   int memid, result, key = atoi(argv[1]);
   shared_memory_t *memory;
 
-  memid = shmget(key, sizeof(shared_memory_t), 0777 | IPC_CREAT);
+  memid = shmget(key, sizeof(shared_memory_t), 0777 | IPC_CREAT | IPC_EXCL);
   if (memid == -1) {
     perror("shmget");
     exit(-1);
